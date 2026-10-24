@@ -1,0 +1,20 @@
+[tools]
+"npm:atcoder-cli" = "latest"
+"pipx:aclogin" = "latest"
+"pipx:online-judge-tools-ng" = "12.0.1"
+python = "3.11"
+uv = "latest"
+
+[tasks.judge]
+dir = "{{ cwd }}"
+run = [
+    "g++ a.cpp -o a.out",
+    "oj t -c './a.out' -d ./tests"
+]
+
+[tasks.submit]
+dir = "{{ cwd }}"
+run = ["acc submit a.cpp"]
+
+[bootstrap.packages]
+"brew:gnu-time" = "latest"
